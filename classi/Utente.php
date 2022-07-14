@@ -6,6 +6,7 @@ class Utente {
     public $email;
     public $indirizzo;
     public $cartaDiCredito = [];
+    public $sconto = 0; // sconto base
     public bool $iscrizione; // booleano
 
     function __construct($_nome, $_cognome, $_email)
@@ -20,6 +21,7 @@ class Utente {
         return $this->cartaDiCredito;
     }
 
+    //setto i valori che mi aspetto per la carta di credito
     public function setCartaDiCredito($nomeCarta, $numeroCarta, $scadenzaCarta)
     {
         $this->cartaDiCredito = [
@@ -27,7 +29,6 @@ class Utente {
             'numeroCarta' => $numeroCarta,
             'scadenzaCarta' => $scadenzaCarta
         ];
-
         return $this;
     }
 
