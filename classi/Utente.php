@@ -27,9 +27,18 @@ class Utente {
         $this->cartaDiCredito = [
             'nomeCarta' => $nomeCarta,
             'numeroCarta' => $numeroCarta,
-            'scadenzaCarta' => $scadenzaCarta
+            'scadenzaCarta' => $scadenzaCarta,
         ];
-        return $this;
+
+        $dataAttuale = date('d-m-Y');
+        $dataConfronto = strtotime($dataAttuale);
+        $dataCarta = strtotime($scadenzaCarta);
+
+        if ($dataCarta > $dataConfronto) {
+            return $this;
+        } else {
+            return;
+        }
     }
 
     public function getIscrizione()

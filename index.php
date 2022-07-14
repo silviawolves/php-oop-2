@@ -46,9 +46,6 @@ $cliente1->getSconto();
 var_dump($cliente1);
 
 
-
-
-
 ## Provate ad immaginare quali sono le classi necessarie per creare uno shop online con le seguenti caratteristiche.
 ## L’e-commerce vende prodotti per gli animali.
 ## I prodotti saranno oltre al cibo, anche giochi, cucce, etc.
