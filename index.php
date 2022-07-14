@@ -3,7 +3,9 @@
 require_once 'classi/Utente.php';
 require_once 'classi/Cliente.php';
 require_once 'classi/Prodotto.php';
+require_once 'classi/Carrello.php';
 
+//cibo
 $prodotto1 = new Prodotto();
 $prodotto1->nome = 'Royal Canin';
 $prodotto1->prezzo = 25;
@@ -12,17 +14,34 @@ $prodotto1->composizione = 'Manzo e Riso';
 $prodotto1->specieAnimale = 'Cane';
 var_dump($prodotto1);
 
+//gioco
+$prodotto2 = new Prodotto();
+$prodotto2->nome = 'Furry Ball';
+$prodotto2->prezzo = 14;
+$prodotto2->forma = 'rotondo';
+$prodotto2->faRumore = true;
+var_dump($prodotto2);
+
+//carrello
+$carrello1 = new Carrello();
+$carrello1->prodotti = [$prodotto1, $prodotto2];
+$carrello1->setTotale([$prodotto1->prezzo, $prodotto2->prezzo]);
+$carrello1->getTotale();
+var_dump($carrello1);
+
+//utente non iscritto
 $utente1 = new Utente('Silvia', 'Canepa', 'silviacanepa@gmail.com');
 $utente1->indirizzo = 'Via Roma 11, Torino';
 $utente1->setCartaDiCredito('Visa', 564737283940717, '24/04/2022');
 $utente1->setIscrizione($utente1->iscrizione = false);
 var_dump($utente1);
 
+//cliente iscritto
 $cliente1 = new Cliente('Adria', 'Arjona', 'adriaarjona@gmail.com');
 $cliente1->indirizzo = 'Via Havana 133, Cuba';
 $cliente1->setCartaDiCredito('American Express', 54372727163484930, '10/07/2024');
 $cliente1->setIscrizione($cliente1->iscrizione = true);
-$cliente1->setSconto(true, 25);
+$cliente1->setSconto(true, $carrello1->getTotale());
 $cliente1->getSconto();
 var_dump($cliente1);
 
