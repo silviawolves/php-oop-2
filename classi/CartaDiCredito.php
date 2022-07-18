@@ -1,15 +1,20 @@
 <?php
 
+require_once 'traits/Validazioni.php';
+
 class CartaDiCredito {
     public $nomeCarta;
     public $numeroCarta;
     public $scadenzaCarta;
+    use Validazioni;
 
     function __construct($_nomeCarta, $_numeroCarta, $_scadenzaCarta)
     {
         $this->nomeCarta = $_nomeCarta;
         $this->numeroCarta = $_numeroCarta;
         $this->scadenzaCarta = $_scadenzaCarta;
+
+        $this->validaNumeroCarta($_numeroCarta);
     }
 
     public function getCartaDiCredito()

@@ -32,7 +32,7 @@ var_dump($carrello1);
 //utente non iscritto
 $utente1 = new Utente('Silvia', 'Canepa', 'silviacanepa@gmail.com');
 $utente1->indirizzo = 'Via Roma 11, Torino';
-$utente1->carta = new CartaDiCredito('Visa', 564737283940717, '04/22');
+$utente1->carta = new CartaDiCredito('Visa', 56473783940717, '04/22');
 $utente1->carta->checkScadenza('04/22');
 $utente1->setIscrizione($utente1->iscrizione = false);
 var_dump($utente1);
