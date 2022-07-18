@@ -39,13 +39,19 @@ var_dump($utente1);
 
 //cliente iscritto
 $cliente1 = new Cliente('Adria', 'Arjona', 'adriaarjona@gmail.com');
-$cliente1->indirizzo = 'Via Havana 133, Cuba';
+// $cliente1->indirizzo = 'Via Havana 133, Cuba';
 $cliente1->carta = new CartaDiCredito('American Express', 54372727163484930, '07/24');
 $cliente1->carta->checkScadenza('07/24');
 $cliente1->setIscrizione($cliente1->iscrizione = true);
 $cliente1->setSconto(true, $carrello1->getTotale());
 $cliente1->getSconto();
 var_dump($cliente1);
+
+try {
+    $cliente1->indirizzo = null;
+} catch (Exception $e) {
+    echo 'Inserire un prodotto nel carrello.';
+}
 
 ## Provate ad immaginare quali sono le classi necessarie per creare uno shop online con le seguenti caratteristiche.
 ## L’e-commerce vende prodotti per gli animali.
